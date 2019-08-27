@@ -4,7 +4,7 @@
 
 #include "bfs.hpp"
 
-void dfs (vector<vector<int>>& adj_graph, const int& start, const int& terminal=-1)
+bool bfs(vector<vector<int>>& adj_graph, const int& start, const int& terminal)
 {
     vector<bool> is_visited(adj_graph.size());
     deque<int> q(1, start);
@@ -19,7 +19,7 @@ void dfs (vector<vector<int>>& adj_graph, const int& start, const int& terminal=
         cout << vertex << ' ';
 
         if (vertex == terminal)
-            break;
+            return true;
 
         for (auto i: adj_graph[vertex])
             if (!is_visited[i])
@@ -28,3 +28,4 @@ void dfs (vector<vector<int>>& adj_graph, const int& start, const int& terminal=
 
     cout << endl;
 }
+

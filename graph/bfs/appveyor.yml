@@ -1,0 +1,28 @@
+
+# -----------------------------------------------------------------------------
+# References
+# -----------------------------------------------------------------------------
+#
+# https://www.appveyor.com/blog/2018/04/25/specialized-build-matrix-configuration-in-appveyor/
+#
+
+# OS
+images:
+    - Visual Studio 2017
+    - Debian
+
+configuration:
+    - Debug
+    - Release
+
+branches:
+    only:
+        - master
+
+platform:
+    - x64
+
+max_jobs: 1
+
+build_script:
+    - python3 run_ci.py
